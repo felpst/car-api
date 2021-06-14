@@ -1,13 +1,8 @@
 // Os repositórios são responsáveis por fazerem a mainupalação dos dados (fazer select do db e etc).
 import { Category } from "../model/Category";
+import { ICategoriesRepository, ICreateCategoryDTO } from "./ICategoriesRepository";
 
-// DTO --> Data Transfer Object: Criar um objeto que vai ser responsável em fazer a transferência de dados entre uma camada e outra.
-interface ICreateCategoryDTO { // Este aqui é o meu DTO para fazer a transferência de dados entre o request do routes, e a minha classe. É bom começar com um I maiúsculo para indicar que é uma interface.
-    name: string;
-    description: string;
-}
-
-class CategoriesRepository {
+class CategoriesRepository implements ICategoriesRepository{ // The class which uses the implments keywords, will need to implement all the properties and methods of the class which it implements.
     private categories: Category[]; // Aqui foi definido como private, pois só quem tem acesso a isto aqui é o repositório.
 
     constructor() {

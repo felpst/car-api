@@ -1,4 +1,4 @@
-import { CategoriesRepository } from "../repositories/CategoriesRepository"
+import { ICategoriesRepository } from "../repositories/ICategoriesRepository";
 
 interface IRequest {
     name: string;
@@ -6,7 +6,7 @@ interface IRequest {
 }
 
 class CreateCategoryService {
-    constructor(private categoriesRepository: CategoriesRepository){ // O private aqui já possibilita com que o execute já tenha acesso a variavel categoriesRepository
+    constructor(private categoriesRepository: ICategoriesRepository){ // O private aqui já possibilita com que o execute já tenha acesso a variavel categoriesRepository
 
     }
 

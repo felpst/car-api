@@ -2,6 +2,6 @@ SOLID: Conceitos reunidos pelo "Uncle Bob", ou Robert Martin, um desenvolvedor b
 
 S -> SRP --> Single Responsability Principle: 
 O -> OCP --> Open-Closed Principle
-L -> LSP --> Liskov Substitution Principle
+L -> LSP --> Liskov Substitution Principle: As partes intercambiaveis de um software devem estar em um contrato que permitam que elas sejam substituidas umas pelas outras sem afetar no funcionamento do programa.
 I -> ISP --> Interface Segregation Principle
 D -> DIP --> Dependency Inversion Principle: Códigos que implementam uma política de alto nível, não deve depender de códigos que implementam detalhes de baixo nível.
