@@ -16,7 +16,7 @@ const upload = multer({
 
 categoriesRoutes.post("/", (req, res) => { // Para um API ser considerada uma API Rest, ela precisa ter o seu recurso muito bem definido
     return createCategoryController.handle(req, res);
-})
+});
 
 categoriesRoutes.get("/", (req, res) => {
     return listCategoriesController.handle(req, res);
@@ -24,6 +24,6 @@ categoriesRoutes.get("/", (req, res) => {
 
 categoriesRoutes.post("/import", upload.single("file"), (req, res) => {
     return importCategoryController.handle(req, res);
-}) // upload.single("file") funciona como um middleware que erá possibilitar somente o upload de um arquivo, e o "file" será o nome que será reconhecido pelo Insomnia.
+}); // upload.single("file") funciona como um middleware que erá possibilitar somente o upload de um arquivo, e o "file" será o nome que será reconhecido pelo Insomnia.
 
 export { categoriesRoutes };

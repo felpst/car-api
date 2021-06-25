@@ -12,8 +12,8 @@ class ImportCategoryUseCase {
 
     loadCategories(file: Express.Multer.File): Promise<IImportCategory[]> { // Como estou trabalhando com pomise, eu preciso definir que vai ser uma promise do tipo IImportCategory.
         return new Promise((resolve, reject) => {
-            const stream = fs.createReadStream(file.path) // Esta função permite com que eu leia o arquivo em partes (chuncks). O file.path da a ele o path do meu arquivo.
-            const categories: IImportCategory[] = []
+            const stream = fs.createReadStream(file.path); // Esta função permite com que eu leia o arquivo em partes (chuncks). O file.path da a ele o path do meu arquivo.
+            const categories: IImportCategory[] = [];
 
             const parseFile = csvParse();
 
@@ -35,11 +35,11 @@ class ImportCategoryUseCase {
                 })
                 .on("error", (err) => { // Caso tenho um erro, ele vai pegar e passar para o reject o error.
                     reject(err);
-                })
+                });
         });
     }
 
-    async execute(file: Express.Multer.File): Promise<void> { // Como não sei o tipo do file, eu posso colocar como any. Eu descobri o tipo do arquivo info em routes, e deixando o mouse sobre o file.
+    async execute(file: Express.Multer.File): Promise<void> { // Como não sei o tipo do file, eu posso colocar como any. Eu descobri o tipo do arquivo info em routes deixando o mouse sobre o file.
         const categories = await this.loadCategories(file);
 
         categories.map(async (category) => {

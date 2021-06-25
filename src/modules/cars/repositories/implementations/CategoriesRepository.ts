@@ -4,7 +4,7 @@ import { ICategoriesRepository, ICreateCategoryDTO } from "../ICategoriesReposit
 
 // Singleton Pattern --> Criar apenas uma instância de uma classe 
 
-class CategoriesRepository implements ICategoriesRepository{ // The class which uses the implments keywords, will need to implement all the properties and methods of the class which it implements.
+class CategoriesRepository implements ICategoriesRepository { // The class which uses the implments keywords, will need to implement all the properties and methods of the class which it implements.
     private categories: Category[]; // Aqui foi definido como private, pois só quem tem acesso a isto aqui é o repositório.
 
     private static INSTANCE: CategoriesRepository;

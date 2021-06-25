@@ -10,7 +10,7 @@ class CreateCategoryUseCase {
 
     }
 
-    execute({ name, description }: IRequest): void { // Como estou seguindo o Single Responsability Principle do SOLID, e está classe já tenha o seu propósito definido no nome, não tem o porque ter um méstodo com um nome se não o nome exectue. Manter este padrão.
+    execute({ name, description }: IRequest): void { // Como estou seguindo o Single Responsability Principle do SOLID, é necessário que está classe já tenha o seu propósito definido no nome, não tem o porque ter um método com um nome se não o nome execute. Manter este padrão.
 
         const categoryAlreadyExists = this.categoriesRepository.findByName(name);
 

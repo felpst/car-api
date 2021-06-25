@@ -2,7 +2,7 @@ import { CategoriesRepository } from '../../repositories/implementations/Categor
 import { CreateCategoryUseCase } from './CreateCategoryUseCase'
 import { CreateCategoryController } from './CreateCategoryController';
 
-const categoriesRepository = new CategoriesRepository.getInstance(); // Singleton pattern applied.
+const categoriesRepository = CategoriesRepository.getInstance(); // Singleton pattern applied.
 
 const createCategoryUseCase = new CreateCategoryUseCase( categoriesRepository );
 
