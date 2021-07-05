@@ -1,8 +1,9 @@
 import express from 'express';
 import swaggerUI from 'swagger-ui-express'; // Swagger é um library externa que eu instalei (junto com @types) que testa o projeto e já cria uma API documentation.
 import swaggerFile from "./swagger.json"; // File que conterá a documentation.
-
 import { router } from './routes';
+
+import "./database"; // Since I am importing the index from the database folder, I don't need to explicitly pass it, because it automatically recognizes it.
 
 const app = express();
 
