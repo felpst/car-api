@@ -10,18 +10,16 @@ class CategoriesRepository
     // private categories: Category[]; // Aqui foi definido como private, pois só quem tem acesso a isto aqui é o repositório.
     private repository: Repository<Category>;
 
-    private static INSTANCE: CategoriesRepository;
-
-    private constructor() { // O construtor foi declarado como private para que eu possa aplicar o singleton pattern aqui, ou seja, somente a classe vai poder instanciar um novo objeto dela mesmo.
+    constructor() { // O construtor foi declarado como private para que eu possa aplicar o singleton pattern aqui, ou seja, somente a classe vai poder instanciar um novo objeto dela mesmo.
         this.repository = getRepository(Category); // This way I will have access to the atributes I have on repository, but only with the methiods I have inside of this class.
     }
 
-    public static getInstance(): CategoriesRepository { // Esta aqui vai ser a função que vai ou criar uma nova instância caso nenhuma exista, ou retornar a já existente.
-        if (!CategoriesRepository.INSTANCE) {
-            CategoriesRepository.INSTANCE = new CategoriesRepository();
-        }
-        return CategoriesRepository.INSTANCE;
-    }
+    // public static getInstance(): CategoriesRepository { // Esta aqui vai ser a função que vai ou criar uma nova instância caso nenhuma exista, ou retornar a já existente.
+    //     if (!CategoriesRepository.INSTANCE) {
+    //         CategoriesRepository.INSTANCE = new CategoriesRepository();
+    //     }
+    //     return CategoriesRepository.INSTANCE;
+    // }
 
     async create( { name, description }: ICreateCategoryDTO): Promise<void> { // Aqui estou pegando o name e description do DTO, e também estou dizendo para o interpreter que esta função é um void, ou seja, não retornará nada, e portanto não precisa de um return.
         // const category = new Category(); // Criando um novo objeto do tipo category, que através desta forma executa o constructor.
