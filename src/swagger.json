@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Rental Documentation",
+        "title": "Rentx Documentation",
         "description": "This is an API Rent",
         "version": "1.0.0",
         "contact": {
@@ -69,6 +69,18 @@
                                 }
                             }
                         }
+                    }
+                }
+            }
+        },
+        "/specifications": {
+            "post": {
+                "tags": [ "specifications"],
+                "summary": "Create a specification",
+                "description":"Create a new specification",
+                "requestBody": {
+                    "schema": {
+                        "$ref": "#/definitions/Specification"
                     }
                 }
             }

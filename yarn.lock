@@ -2756,7 +2756,7 @@ typedarray@^0.0.6:
 
 typeorm@^0.2.34:
   version "0.2.34"
-  resolved "https://registry.npmjs.org/typeorm/-/typeorm-0.2.34.tgz"
+  resolved "https://registry.yarnpkg.com/typeorm/-/typeorm-0.2.34.tgz#637b3cec2de54ee7f423012b813a2022c0aacc8b"
   integrity sha512-FZAeEGGdSGq7uTH3FWRQq67JjKu0mgANsSZ04j3kvDYNgy9KwBl/6RFgMVgiSgjf7Rqd7NrhC2KxVT7I80qf7w==
   dependencies:
     "@sqltools/formatter" "^1.2.2"
