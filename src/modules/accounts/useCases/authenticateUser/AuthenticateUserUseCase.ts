@@ -1,6 +1,7 @@
 import { compare } from "bcryptjs";
 import { sign } from "jsonwebtoken";
 import { inject, injectable } from "tsyringe";
+import { AppError } from "../../../../errors/AppError";
 
 import { IUsersRepository } from "../../repositories/IUsersRepository";
 
@@ -29,7 +30,7 @@ class AuthenticateUserUseCase {
         const user = await this.UserRepository.findByEmail(email);
         
         if(!user){
-            throw new Error("Email or password incorrect!")
+            throw new AppError("Email or password incorrect!")
         }
 
         // Checking if the password given is correct
