@@ -8,7 +8,7 @@ export default {
     upload(folder: string) {
         return {
             storage: multer.diskStorage({
-                destination: resolve(__dirname, "..", "..", folder), // I am getting my current directory, and then I am backing by two directories (..), and after I amsetting it to the folder variable.
+                destination: resolve(__dirname, "..", "..", folder), // I am getting my current directory, and then I am backing by two directories (..), and after I am setting it to the folder variable.
                 filename: (reques, file, callback) => {
                     const fileHash = crypto.randomBytes(16).toString("hex");
                     const fileName = `${fileHash}-${file.originalname}`;

@@ -29,7 +29,7 @@ class UpdateUserAvatarUseCase {
             await deleteFile(`./tmp/avatar/${user.avatar}`); // I am deleting the user's avatar.
         }
 
-        user.avatar = avatar_file;
+        user.avatar = avatar_file; 
 
         await this.usersRepository.create(user);
     }
