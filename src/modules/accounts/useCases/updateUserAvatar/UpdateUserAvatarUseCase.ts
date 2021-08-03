@@ -1,8 +1,9 @@
 import { inject, injectable } from "tsyringe";
 
-import { deleteFile } from "../../../../utils/file";
+import { IUsersRepository } from "@modules/accounts/repositories/IUsersRepository";
+import { deleteFile } from "@utils/file";
 
-import { IUsersRepository } from "../../repositories/IUsersRepository";
+
 
 // Adicionar coluna avatar na tabela de users
 // Refatorar usuário com coluna avatar

@@ -3,9 +3,9 @@ import { Router } from 'express';
 import multer from 'multer';
 
 // import createCategoryController  from '../modules/cars/useCases/createCategory'; // Since I am exporting as default, I don't need to use the {}.
-import { CreateCategoryController } from '../modules/cars/useCases/createCategory/CreateCategoryController';
-import { ImportCategoryController } from '../modules/cars/useCases/importCategory/ImportCategoryController';
-import { ListCategoriesController } from '../modules/cars/useCases/listCategories/ListCategoriesController'; // Como aqui eu estou passando uma pasta, o sistema automaticamente já irá buscar pelo index.ts, portanto não preciso declarar isso explicitamente.
+import { CreateCategoryController } from '@modules/cars/useCases/createCategory/CreateCategoryController';
+import { ImportCategoryController } from '@modules/cars/useCases/importCategory/ImportCategoryController';
+import { ListCategoriesController } from '@modules/cars/useCases/listCategories/ListCategoriesController'; // Como aqui eu estou passando uma pasta, o sistema automaticamente já irá buscar pelo index.ts, portanto não preciso declarar isso explicitamente.
 
 const categoriesRoutes = Router();
 

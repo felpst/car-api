@@ -2,13 +2,15 @@ import "reflect-metadata";
 import express, { NextFunction, Request, Response } from 'express';
 import "express-async-errors";
 import swaggerUI from 'swagger-ui-express'; // Swagger é um library externa que eu instalei (junto com @types) que testa o projeto e já cria uma API documentation.
-import { AppError } from "./errors/AppError";
-import swaggerFile from "./swagger.json"; // File que conterá a documentation.
+
+import "@shared/infra/typeorm"; // Since I am importing the index from the database folder, I don't need to explicitly pass it, because it automatically recognizes it.
+
+import "@shared/container"; // I am importing the container index that I have used to create a category. Why did i have import it here?
+import { AppError } from "@shared/errors/AppError";
+
+import swaggerFile from "../../../swagger.json"; // File que conterá a documentation.
 import { router } from './routes';
 
-import "./database"; // Since I am importing the index from the database folder, I don't need to explicitly pass it, because it automatically recognizes it.
-
-import "./shared/container"; // I am importing the container index that I have used to create a category. Why did i have import it here?
 
 const app = express();
 

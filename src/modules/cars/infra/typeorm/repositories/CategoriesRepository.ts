@@ -1,7 +1,9 @@
 // Os repositórios são responsáveis por fazerem a mainupalação dos dados (fazer select do db e etc).
-import { Category } from "../../entities/Category";
-import { ICategoriesRepository, ICreateCategoryDTO } from "../ICategoriesRepository";
 import { getRepository, Repository } from "typeorm";
+
+import { ICategoriesRepository, ICreateCategoryDTO } from "@modules/cars/repositories/ICategoriesRepository";
+
+import { Category } from "../entities/Category";
 
 // Singleton Pattern --> Criar apenas uma instância de uma classe 
 

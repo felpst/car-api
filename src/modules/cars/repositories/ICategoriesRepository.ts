@@ -1,4 +1,4 @@
-import { Category } from "../entities/Category";
+import { Category } from "../infra/typeorm/entities/Category";
 
 // DTO --> Data Transfer Object: Criar um objeto que vai ser responsável em fazer a transferência de dados entre uma camada e outra.
 interface ICreateCategoryDTO { // Este aqui é o meu DTO para fazer a transferência de dados entre o request do routes e a minha classe. É bom começar com um I maiúsculo para indicar que é uma interface.
