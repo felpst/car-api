@@ -43,6 +43,11 @@ export class CreateCars1628078673001 implements MigrationInterface {
                         isNullable: true,
                     },
                     {
+                        name: "category_id",
+                        type: "uuid",
+                        isNullable: true,
+                    },
+                    {
                         name: "created_at",
                         type: "timestamp",
                         default: "now()",
@@ -53,7 +58,7 @@ export class CreateCars1628078673001 implements MigrationInterface {
                         name: "FKCategoryCar",
                         referencedTableName: "categories",
                         referencedColumnNames: ["id"],
-                        columnNames: ["id"],
+                        columnNames: ["category_id"],
                         onDelete: "SET NULL",
                         onUpdate: "SET NULL",
                     },
@@ -65,5 +70,4 @@ export class CreateCars1628078673001 implements MigrationInterface {
     public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.dropTable("cars");
     }
-
 }
