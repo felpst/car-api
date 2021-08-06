@@ -29,7 +29,7 @@ class CreateCarUseCase {
         fine_amount,
         brand,
         category_id,
-    }): Promise<Car> {
+    }: IRequest): Promise<Car> {
 
         const carAlreadyExists = await this.carsRespository.findByLicensePlate(license_plate);
 

@@ -11,7 +11,7 @@ const router = Router();
 router.use("/categories", categoriesRoutes) // Toda a rota que vier do categoriesRoutes será iniciada com o /categories, portanto eu não preciso mais ficar incluindo isso nos documentos de rotas.
 router.use("/specifications", specificationsRoutes);
 router.use("/users", userRoutes);
-router.use("/car", carsRoutes);
+router.use("/cars", carsRoutes);
 router.use(authenticateRoutes); // This allows the user to pass that using just "/" wihtout any command after.
 
 export { router };
