@@ -6,6 +6,8 @@ import multer from 'multer';
 import { CreateCategoryController } from '@modules/cars/useCases/createCategory/CreateCategoryController';
 import { ImportCategoryController } from '@modules/cars/useCases/importCategory/ImportCategoryController';
 import { ListCategoriesController } from '@modules/cars/useCases/listCategories/ListCategoriesController'; // Como aqui eu estou passando uma pasta, o sistema automaticamente já irá buscar pelo index.ts, portanto não preciso declarar isso explicitamente.
+import { ensureAdmin } from '@shared/infra/http/middlewares/ensureAdmin';
+import { ensureAuthenticated } from '@shared/infra/http/middlewares/ensureAuthenticated';
 
 const categoriesRoutes = Router();
 
@@ -21,12 +23,19 @@ const listCategoriesController = new ListCategoriesController();
 // categoriesRoutes.post("/", (req, res) => { // Para um API ser considerada uma API Rest, ela precisa ter o seu recurso muito bem definido
 //     return createCategoryController().handle(req, res);
 // });
-categoriesRoutes.post("/", createCategoryController.handle); // Now the createCategoryController works as a middleware. This way the express can automatically pass the request and response to the middleware.
+categoriesRoutes.post(
+    "/",
+    ensureAuthenticated,
+    ensureAdmin, 
+    createCategoryController.handle
+); // Now the createCategoryController works as a middleware. This way the express can automatically pass the request and response to the middleware.
 
 categoriesRoutes.get("/", listCategoriesController.handle);
 
 categoriesRoutes.post(
     "/import",
+    ensureAuthenticated,
+    ensureAdmin,
     upload.single("file"), 
     importCategoryController.handle); // upload.single("file") funciona como um middleware que erá possibilitar somente o upload de um arquivo, e o "file" será o nome que será reconhecido pelo Insomnia.
 
