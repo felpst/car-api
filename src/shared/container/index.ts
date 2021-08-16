@@ -8,6 +8,8 @@ import { SpecificationsRepository } from "@modules/cars/infra/typeorm/repositori
 import { ISpecificationsRepository } from "@modules/cars/repositories/ISpecificationsRepository";
 import { ICarsRepository } from "@modules/cars/repositories/ICarsRepository";
 import { CarsRepository } from "@modules/cars/infra/typeorm/repositories/CarsRepository";
+import { ICarsImageRepository } from "@modules/cars/repositories/ICarsImagesRepository";
+import { CarsImagesRepository } from "@modules/cars/infra/typeorm/repositories/CarsImagesRepository";
 
 // ICategoryRepository. I am creating a automatical singleton using the tsyringe 
 container.registerSingleton<ICategoriesRepository>(
@@ -28,4 +30,9 @@ container.registerSingleton<IUsersRepository>(
 container.registerSingleton<ICarsRepository>(
     "CarsRepository", // This is the name I am going to use to call the following module.
     CarsRepository // This is the module being called.
+);
+
+container.registerSingleton<ICarsImageRepository>(
+    "CarsImagesRepository", // This is the name I am going to use to call the following module.
+    CarsImagesRepository // This is the module being called.
 );
