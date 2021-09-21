@@ -5,6 +5,7 @@ import { specificationsRoutes } from './specifications.routes';
 import { userRoutes } from './users.routes';
 import { carsRoutes } from './cars.routes';
 import { authenticateRoutes } from './authenticate.routes';
+import { rentalRoutes } from './rental.routes';
 
 const router = Router();
 
@@ -12,6 +13,7 @@ router.use("/categories", categoriesRoutes) // Toda a rota que vier do categorie
 router.use("/specifications", specificationsRoutes);
 router.use("/users", userRoutes);
 router.use("/cars", carsRoutes);
+router.use("/rentals", rentalRoutes);
 router.use(authenticateRoutes); // This allows the user to pass that using just "/" wihtout any command after.
 
 export { router };
