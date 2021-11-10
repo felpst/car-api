@@ -1,5 +1,6 @@
 import { ICreateCarDTO } from "@modules/cars/dtos/ICreateCarDTO";
 import { ICarsRepository } from "@modules/cars/repositories/ICarsRepository";
+import { StringMap } from "ts-jest/dist/types";
 import { getRepository, Repository } from "typeorm";
 import { Car } from "../entities/Car";
 
@@ -74,6 +75,16 @@ class CarsRepository implements ICarsRepository{
     async findById(id: string): Promise<Car> {
         const car = await this.repository.findOne(id);
         return car;
+    }
+
+    async updateAvailable(id: string, available: boolean): Promise<void> {
+        await this.repository
+            .createQueryBuilder()
+            .update()
+            .set({available})
+            .where("id = :id") // Here I am passing a reference to the param id by using :id
+            .setParameters({id})
+            .execute()
     }
 
 }
