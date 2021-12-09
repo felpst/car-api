@@ -1,13 +1,13 @@
-import { CarsRespositoryInMemory } from "@modules/cars/repositories/in-memory/CarsRepositoryInMemory";
+import { CarsRepositoryInMemory } from "@modules/cars/repositories/in-memory/CarsRepositoryInMemory";
 import { ListAvailableCarsUseCase } from "./ListAvailableCarsUseCase"
 
 let listAvailableCarsUseCase: ListAvailableCarsUseCase;
-let carsRepositoryInMemory: CarsRespositoryInMemory;
+let carsRepositoryInMemory: CarsRepositoryInMemory;
 
 describe("List Cars", () => {
 
     beforeEach(() => {
-        carsRepositoryInMemory = new CarsRespositoryInMemory();
+        carsRepositoryInMemory = new CarsRepositoryInMemory();
         listAvailableCarsUseCase = new ListAvailableCarsUseCase(carsRepositoryInMemory);
     });
 
