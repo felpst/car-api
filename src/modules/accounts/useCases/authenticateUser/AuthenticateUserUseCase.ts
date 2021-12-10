@@ -13,7 +13,7 @@ interface IRequest {
     password: string;
 }
 
-interface IReponse {
+interface IResponse {
     user: {
         name: string;
         email: string;
@@ -33,7 +33,7 @@ class AuthenticateUserUseCase {
         private dateProvider: IDateProvider,
     ) {}
 
-    async execute({ email, password }: IRequest): Promise <IReponse> {
+    async execute({ email, password }: IRequest): Promise <IResponse> {
         // Checking if the user exists
         const user = await this.UserRepository.findByEmail(email);
         const {
@@ -55,7 +55,7 @@ class AuthenticateUserUseCase {
             throw new AppError("Email or password incorrect!");
         }
 
-        // Gerar jsonwebtokne
+        // Gerar jsonwebtoken
         const token = sign({}, secret_token, {
             subject: user.id,
             expiresIn: expires_in_token,
@@ -74,7 +74,7 @@ class AuthenticateUserUseCase {
             expires_date: refresh_token_expires_date,
         });
 
-        const tokenReturn: IReponse = {
+        const tokenReturn: IResponse = {
             token,
             user: {
                 name: user.name,
