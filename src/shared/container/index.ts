@@ -14,6 +14,8 @@ import { ICarsImageRepository } from "@modules/cars/repositories/ICarsImagesRepo
 import { CarsImagesRepository } from "@modules/cars/infra/typeorm/repositories/CarsImagesRepository";
 import { IRentalsRepository } from "@modules/rentals/repositories/IRentalsRepository";
 import { RentalsRepository } from "@modules/rentals/infra/typeorm/repositories/RentalsRepository";
+import { IUsersTokensRepository } from "@modules/accounts/repositories/IUsersTokensRepository";
+import { UsersTokensRepository } from "@modules/accounts/infra/typeorm/repositories/UsersTokensRepository";
 
 // ICategoryRepository. I am creating a automatical singleton using the tsyringe 
 container.registerSingleton<ICategoriesRepository>(
@@ -44,4 +46,9 @@ container.registerSingleton<ICarsImageRepository>(
 container.registerSingleton<IRentalsRepository>(
     "RentalsRepository", // This is the name I am going to use to call the following module.
     RentalsRepository // This is the module being called.
+);
+
+container.registerSingleton<IUsersTokensRepository>(
+    "UsersTokensRepository", // This is the name I am going to use to call the following module.
+    UsersTokensRepository // This is the module being called.
 );
