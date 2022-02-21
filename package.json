@@ -8,7 +8,7 @@
     "@types/csv-parse": "^1.2.2",
     "@types/nodemailer": "^6.4.4",
     "@types/uuid": "^8.3.0",
-    "aws-sdk": "^2.1074.0",
+    "aws-sdk": "^2.1077.0",
     "bcryptjs": "^2.4.3",
     "csv-parse": "^4.16.0",
     "dayjs": "^1.10.6",
