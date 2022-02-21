@@ -1,4 +1,3 @@
 /node_modules/
-/coverage/Icov-report/
-/coverage/lcov.info/
+/coverage/
 .env
