@@ -18,7 +18,12 @@ container.registerInstance<IEmailProvider>(
     new EtherealEmailProvider(),
 );
 
+const dikStorage = {
+    local: LocalStorageProvider,
+    s3: S3StorageProvider,
+}
+
 container.registerSingleton<IStorageProvider>(
     "StorageProvider",
-    S3StorageProvider
+    dikStorage[process.env.disk]
 );
