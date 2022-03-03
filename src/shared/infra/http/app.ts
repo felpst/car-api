@@ -10,6 +10,7 @@ import createConnection from "@shared/infra/typeorm"; // Since I am importing th
 
 import swaggerFile from "../../../swagger.json"; // File que conterá a documentation.
 import { router } from './routes';
+import upload from "@config/upload";
 
 createConnection();
 const app = express();
@@ -17,6 +18,9 @@ const app = express();
 app.use(express.json());
 
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerFile)); // A documentação vai ficar na URL /api-docs. O setup() necessita de um arquivo JSON para armazenar todas as informações sobre a documentação.
+
+app.use("/avatar", express.static(`${upload.tmpFolder}/avatar`)); // Serve para acessar os arquivos estáticos.
+app.use("/cars", express.static(`${upload.tmpFolder}/cars`)); 
 
 app.use(router); // Aqui eu estou usando o index.ts das Routes para importar e usar todas de uma só vez.
 
