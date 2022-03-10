@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/Cellar/yarn/1.22.17/libexec/bin/yarn.js add @type/mime
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.22.17/libexec/bin/yarn.js add @babel/cli @babel/node @babel/plugin-proposal-class-properties @babel/plugin-proposal-decorators @babel/preset-env babel-plugin-module-resolver babel-plugin-transform-typescript-metada -D
 
 PATH: 
   /Users/felipe/.asdf/shims:/usr/local/Cellar/asdf/0.8.1_1/libexec/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin:/usr/local/share/dotnet:/opt/X11/bin:~/.dotnet/tools:/Library/Apple/usr/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Xamarin Workbooks.app/Contents/SharedSupport/path-bin:/Users/felipe/opt/anaconda3/bin:/Users/felipe/opt/anaconda3/condabin
@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@type%2fmime: Not found
+  Error: https://registry.yarnpkg.com/babel-plugin-transform-typescript-metada: Not found
       at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.22.17/libexec/lib/cli.js:67029:18)
       at Request.self.callback (/usr/local/Cellar/yarn/1.22.17/libexec/lib/cli.js:140883:22)
       at Request.emit (events.js:315:20)
@@ -37,8 +37,9 @@ npm manifest:
       "@types/csv-parse": "^1.2.2",
       "@types/nodemailer": "^6.4.4",
       "@types/uuid": "^8.3.0",
-      "aws-sdk": "^2.1077.0",
+      "aws-sdk": "^2.1081.0",
       "bcryptjs": "^2.4.3",
+      "class-transformer": "0.4.0",
       "csv-parse": "^4.16.0",
       "dayjs": "^1.10.6",
       "express": "^4.17.1",
@@ -66,6 +67,7 @@ npm manifest:
       "@types/express": "^4.17.12",
       "@types/jest": "^26.0.24",
       "@types/jsonwebtoken": "^8.5.4",
+      "@types/mime": "^2.0.3",
       "@types/multer": "^1.4.5",
       "@types/supertest": "^2.0.11",
       "@types/swagger-ui-express": "^4.1.2",
@@ -797,6 +799,11 @@ Lockfile:
     resolved "https://registry.npmjs.org/@types/mime/-/mime-1.3.2.tgz"
     integrity sha512-YATxVxgRqNH6nHEIsvg6k2Boc1JHI9ZbH5iWFFv/MTkchz3b1ieGDa5T0a9RznNdI0KhVbdbWSN+KWWrQZRxTw==
   
+  "@types/mime@^2.0.3":
+    version "2.0.3"
+    resolved "https://registry.yarnpkg.com/@types/mime/-/mime-2.0.3.tgz#c893b73721db73699943bfc3653b1deb7faa4a3a"
+    integrity sha512-Jus9s4CDbqwocc5pOAnh8ShfrnMcPHuJYzVcSUU7lrh8Ni5HuIqX3oilL86p3dlTrk0LzHRCgA/GQ7uNCw6l2Q==
+  
   "@types/multer@^1.4.5":
     version "1.4.5"
     resolved "https://registry.npmjs.org/@types/multer/-/multer-1.4.5.tgz"
@@ -1175,10 +1182,10 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
     integrity sha1-x57Zf380y48robyXkLzDZkdLS3k=
   
-  aws-sdk@^2.1077.0:
-    version "2.1077.0"
-    resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1077.0.tgz#d4a391d38ede867fe9a88f31555f09a338dfdf4e"
-    integrity sha512-orJvJROs8hJaQRfHsX7Zl5PxEgrD/uTXyqXz9Yu9Io5VVxzvnOty9oHmvEMSlgTIf1qd01gnev/vpvP1HgzKtw==
+  aws-sdk@^2.1081.0:
+    version "2.1081.0"
+    resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1081.0.tgz#171a306fcc752b97c18f2d01a8bff24bba12447a"
+    integrity sha512-204Aqi3NmSRZDAvyzmi1usje6oCM+Q4g6PgA+vc/XQQPe1oxO95AgOXZvrpjX2QlLbA0JDItL1ufUh3nszjaqA==
     dependencies:
       buffer "4.9.2"
       events "1.1.1"
@@ -1480,6 +1487,11 @@ Lockfile:
     version "1.2.2"
     resolved "https://registry.yarnpkg.com/cjs-module-lexer/-/cjs-module-lexer-1.2.2.tgz#9f84ba3244a512f3a54e5277e8eef4c489864e40"
     integrity sha512-cOU9usZw8/dXIXKtwa8pM0OTJQuJkxMN6w30csNRUerHfeQ5R6U3kkU/FtJeIf3M202OHfY2U8ccInBG7/xogA==
+  
+  class-transformer@0.4.0:
+    version "0.4.0"
+    resolved "https://registry.yarnpkg.com/class-transformer/-/class-transformer-0.4.0.tgz#b52144117b423c516afb44cc1c76dbad31c2165b"
+    integrity sha512-ETWD/H2TbWbKEi7m9N4Km5+cw1hNcqJSxlSYhsLsNjQzWWiZIYA1zafxpK9PwVfaZ6AqR5rrjPVUBGESm5tQUA==
   
   cli-highlight@^2.1.10:
     version "2.1.11"
