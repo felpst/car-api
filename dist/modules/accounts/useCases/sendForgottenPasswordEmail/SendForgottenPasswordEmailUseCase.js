@@ -11,15 +11,15 @@ var _uuid = require("uuid");
 
 var _path = require("path");
 
-var _IUsersRepository = require("@modules/accounts/repositories/IUsersRepository");
+var _IUsersRepository = require("../../repositories/IUsersRepository");
 
-var _IUsersTokensRepository = require("@modules/accounts/repositories/IUsersTokensRepository");
+var _IUsersTokensRepository = require("../../repositories/IUsersTokensRepository");
 
-var _AppError = require("@shared/errors/AppError");
+var _AppError = require("../../../../shared/errors/AppError");
 
-var _IDateProvider = require("@shared/container/providers/DateProvider/IDateProvider");
+var _IDateProvider = require("../../../../shared/container/providers/DateProvider/IDateProvider");
 
-var _IEmailProvider = require("@shared/container/providers/EmailProvider/IEmailProvider");
+var _IEmailProvider = require("../../../../shared/container/providers/EmailProvider/IEmailProvider");
 
 var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _class;
 

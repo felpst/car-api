@@ -15,17 +15,17 @@ require("express-async-errors");
 
 var _swaggerUiExpress = _interopRequireDefault(require("swagger-ui-express"));
 
-require("@shared/container");
+require("../../container");
 
-var _AppError = require("@shared/errors/AppError");
+var _AppError = require("../../errors/AppError");
 
-var _typeorm = _interopRequireDefault(require("@shared/infra/typeorm"));
+var _typeorm = _interopRequireDefault(require("../typeorm"));
 
 var _swagger = _interopRequireDefault(require("../../../swagger.json"));
 
 var _routes = require("./routes");
 
-var _upload = _interopRequireDefault(require("@config/upload"));
+var _upload = _interopRequireDefault(require("../../../config/upload"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

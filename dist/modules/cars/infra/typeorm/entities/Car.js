@@ -25,15 +25,12 @@ let Car = (_dec = (0, _typeorm.Entity)("cars"), _dec2 = Reflect.metadata("design
   name: "category_id"
 }), _dec22 = Reflect.metadata("design:type", typeof _Category.Category === "undefined" ? Object : _Category.Category), _dec23 = (0, _typeorm.Column)(), _dec24 = Reflect.metadata("design:type", String), _dec25 = (0, _typeorm.ManyToMany)(() => _Specification.Specification), _dec26 = (0, _typeorm.JoinTable)({
   name: "specifications_cars",
-  // The name of the relational table
   joinColumns: [{
     name: "car_id"
   }],
-  // Inside the relational table, which is the column that references this entity
   inverseJoinColumns: [{
-    name: "specifications_id"
-  }] // Inside the relational table, which is the column that refences the entity that will be realted to this one
-
+    name: "specification_id"
+  }]
 }), _dec27 = Reflect.metadata("design:type", Array), _dec28 = (0, _typeorm.CreateDateColumn)(), _dec29 = Reflect.metadata("design:type", typeof Date === "undefined" ? Object : Date), _dec(_class = _dec2(_class = _dec3(_class = (_class2 = class Car {
   constructor() {
     _initializerDefineProperty(this, "id", _descriptor, this);

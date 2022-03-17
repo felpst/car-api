@@ -7,13 +7,13 @@ exports.rentalRoutes = void 0;
 
 var _express = require("express");
 
-var _CreateRentalController = require("@modules/rentals/useCase/createRental/CreateRentalController");
+var _CreateRentalController = require("../../../../modules/rentals/useCase/createRental/CreateRentalController");
 
-var _DevolutionRentalController = require("@modules/rentals/useCase/devolutionRental/DevolutionRentalController");
+var _DevolutionRentalController = require("../../../../modules/rentals/useCase/devolutionRental/DevolutionRentalController");
 
 var _ensureAuthenticated = require("../middlewares/ensureAuthenticated");
 
-var _ListRentalsByUserController = require("@modules/rentals/useCase/listRentalsByUser/ListRentalsByUserController");
+var _ListRentalsByUserController = require("../../../../modules/rentals/useCase/listRentalsByUser/ListRentalsByUserController");
 
 const rentalRoutes = (0, _express.Router)();
 exports.rentalRoutes = rentalRoutes;

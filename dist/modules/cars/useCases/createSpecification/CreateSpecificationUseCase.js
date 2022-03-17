@@ -7,9 +7,9 @@ exports.CreateSpecificationUseCase = void 0;
 
 var _tsyringe = require("tsyringe");
 
-var _AppError = require("@shared/errors/AppError");
+var _AppError = require("../../../../shared/errors/AppError");
 
-var _ISpecificationsRepository = require("@modules/cars/repositories/ISpecificationsRepository");
+var _ISpecificationsRepository = require("../../repositories/ISpecificationsRepository");
 
 var _dec, _dec2, _dec3, _dec4, _class;
 
