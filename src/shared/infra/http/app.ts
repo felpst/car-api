@@ -1,42 +1,48 @@
 import "reflect-metadata";
 import "dotenv/config";
-import express, { NextFunction, Request, Response } from 'express';
+import express, { NextFunction, Request, Response } from "express";
 import "express-async-errors";
-import swaggerUI from 'swagger-ui-express'; // Swagger é um library externa que eu instalei (junto com @types) que testa o projeto e já cria uma API documentation.
+import swaggerUI from "swagger-ui-express"; // Swagger é um library externa que eu instalei (junto com @types) que testa o projeto e já cria uma API documentation.
 
 import "@shared/container"; // I am importing the container index that I have used to create a category. Why did i have import it here?
+import upload from "@config/upload";
 import { AppError } from "@shared/errors/AppError";
+import rateLimiter from "@shared/infra/http/middlewares/rateLimiter";
 import createConnection from "@shared/infra/typeorm"; // Since I am importing the index from the database folder, I don't need to explicitly pass it, because it automatically recognizes it.
 
 import swaggerFile from "../../../swagger.json"; // File que conterá a documentation.
-import { router } from './routes';
-import upload from "@config/upload";
+import { router } from "./routes";
 
 createConnection();
 const app = express();
+
+app.use(rateLimiter);
 
 app.use(express.json());
 
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerFile)); // A documentação vai ficar na URL /api-docs. O setup() necessita de um arquivo JSON para armazenar todas as informações sobre a documentação.
 
 app.use("/avatar", express.static(`${upload.tmpFolder}/avatar`)); // Serve para acessar os arquivos estáticos.
-app.use("/cars", express.static(`${upload.tmpFolder}/cars`)); 
+app.use("/cars", express.static(`${upload.tmpFolder}/cars`));
 
 app.use(router); // Aqui eu estou usando o index.ts das Routes para importar e usar todas de uma só vez.
 
-app.use((err: Error, request: Request, response: Response, next: NextFunction) => { // I am creating a middleware here to deal with errors. For middlewares that deal with errors, the first argument must always be the error.
-    if(err instanceof AppError) // Here i am getting the instance of the error
-    {
-        return response.status(err.statusCode).json({
-            message: err.message,
-        })
+app.use(
+  (err: Error, request: Request, response: Response, next: NextFunction) => {
+    // I am creating a middleware here to deal with errors. For middlewares that deal with errors, the first argument must always be the error.
+    if (err instanceof AppError) {
+      // Here i am getting the instance of the error
+      return response.status(err.statusCode).json({
+        message: err.message,
+      });
     }
 
     return response.status(500).json({
-        status: "error",
-        message: `Internal server error - ${err.message}`,
+      status: "error",
+      message: `Internal server error - ${err.message}`,
     });
-})
+  }
+);
 
 export { app };
 
